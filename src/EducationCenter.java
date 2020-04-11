@@ -16,13 +16,13 @@ public class EducationCenter {
     public static void main(String[] args) {
         boolean isRun = true;
         while (isRun) {
-            printCommands();
+//            printCommands();
             String commandsStr = scanner.nextLine();
             int commands = Integer.parseInt(commandsStr);
             switch (commands) {
                 case EXIT:
                     isRun = false;
-                    System.out.println("EXIT");
+                    System.out.println("(EXIT) ");
                     break;
                 case ADD_STUDENT:
                     addStudents();
