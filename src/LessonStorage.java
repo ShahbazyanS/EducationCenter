@@ -30,12 +30,15 @@ public class LessonStorage {
         }
     }
 
-    public Lesson getByName(String lessonName) {
+    public Lesson getByName(String name) {
         for (int i = 0; i < size; i++) {
-            if (lessons[i].getName().equals(lessonName)) {
+            if (lessons[i].getName().equals(name)) {
                 return lessons[i];
             }
         }
         return null;
+    }
+    public boolean isEmpty(){
+        return size == 0;
     }
 }

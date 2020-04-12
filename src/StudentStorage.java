@@ -1,49 +1,54 @@
 public class StudentStorage {
-    private Student[] arrayStudent;
+    private Student[] students;
     private int size;
 
     public StudentStorage(int capacity) {
-        arrayStudent = new Student[capacity];
+        students = new Student[capacity];
     }
 
     public StudentStorage() {
-        arrayStudent = new Student[15];
+        students = new Student[15];
     }
 
     public void add(Student students) {
-        if (size == arrayStudent.length) {
+        if (size == this.students.length) {
             extend();
         }
-        arrayStudent[size++] = students;
+        this.students[size++] = students;
     }
 
     private void extend() {
-        Student[] tmp = new Student[arrayStudent.length + 10];
-        System.arraycopy(arrayStudent, 0, tmp, 0, arrayStudent.length);
-        arrayStudent = tmp;
+        Student[] tmp = new Student[students.length + 10];
+        System.arraycopy(students, 0, tmp, 0, students.length);
+        students = tmp;
     }
 
     public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.println(arrayStudent[i]);
+            System.out.println(students[i]);
         }
     }
 
 
-    public Student getStudentByName(String name) {
+    public Student getByName(String name) {
         for (int i = 0; i < size; i++) {
-            if (name.equals(arrayStudent[i].getName())) {
-                return arrayStudent[i];
+            if (name.equals(students[i].getName())) {
+                return students[i];
             }
         }
         return null;
     }
 
-    public void printByLessonName(String name) {
+    public boolean isEmpty(){
+        return size == 0;
+    }
+
+    public void printByLessonName(Lesson byName) {
         for (int i = 0; i < size; i++) {
-            for (int j = 0; j < arrayStudent[i].getLessons().length; j++) {
-                if (arrayStudent[i].getLessons()[j].getName().equals(name)) {
-                    System.out.println(arrayStudent[i]);
+            for (Lesson lesson : students[i].getLessons()) {
+                if (lesson.equals(byName)) {
+                    System.out.println(students[i]);
+                    break;
                 }
             }
         }
