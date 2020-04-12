@@ -48,7 +48,6 @@ public class EducationCenterMain implements Commands{
         Lesson[] lessons = chooseLesson();
         System.out.println("Please input Student data: name,surname,phone,email");
         Student student = new Student();
-        System.out.println("ուսանողի տվյալներ (name, sureName, price, email)");
         String studentDataStr = scanner.nextLine();
         String[] studentData = studentDataStr.split(",");
         student.setLessons(lessons);
